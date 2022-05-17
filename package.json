@@ -2,9 +2,9 @@
   "name": "sherlock-holmes-quotes",
   "version": "1.0.0",
   "description": "An API for random Sherlock Holmes quotes.",
-  "main": "index.js",
+  "main": "app.js",
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   },
   "scripts": {
     "start": "node index.js",
