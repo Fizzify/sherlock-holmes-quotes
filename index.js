@@ -24,11 +24,12 @@ app.route("/").get((req, res) => {
 });
 
 app.get("/home", (req, res) => {
-  Quote.find({}, (err, foundQuotes) => {
-    if (!err) {
-      const randomNumber = Math.floor(Math.random() * foundQuotes.length);
-      res.render("home", { randomQuote: foundQuotes[randomNumber] });
+  Quote.find({}, (err, foundQuote) => {
+    if (foundQuote) {
+      const randomNumber = Math.floor(Math.random() * foundQuote.length);
+      res.render("home", { randomQuote: foundQuote[randomNumber] });
     } else {
+      res.redirect("/quotes");
     }
   });
 });
