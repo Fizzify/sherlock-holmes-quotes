@@ -2,12 +2,12 @@
   "name": "sherlock-holmes-quotes",
   "version": "1.0.0",
   "description": "An API for random Sherlock Holmes quotes.",
-  "main": "app.js",
+  "main": "index.js",
   "engines": {
     "node": "16.x"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Iño <inotanglao@gmail.com>",
