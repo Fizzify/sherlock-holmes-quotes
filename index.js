@@ -1,10 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static("public"));
 
 mongoose.connect(process.env.DATABASE);
 
@@ -16,6 +18,17 @@ const quoteSchema = {
 const Quote = mongoose.model("Quote", quoteSchema);
 
 app.set("view engine", "ejs");
+
+app.get("/", (req, res) => {
+  Quote.find((err, foundQuotes) => {
+    if (foundQuotes) {
+      const randomNumber = Math.floor(Math.random() * foundQuotes.length);
+      res.render("home", { randomQuote: foundQuotes[randomNumber] });
+    } else {
+      res.send("Error, no quotes found.");
+    }
+  });
+});
 
 app
   .route("/quotes")
@@ -47,7 +60,6 @@ app.route("/quotes/random").get((req, res) => {
   Quote.find((err, foundQuotes) => {
     if (foundQuotes) {
       const randomNumber = Math.floor(Math.random() * foundQuotes.length);
-      console.log(randomNumber);
       res.send(foundQuotes[randomNumber]);
     } else {
       res.send("Error, no quotes found.");

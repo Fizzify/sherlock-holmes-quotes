@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Sherlock Holmes Quotes</title>
+  <link rel="stylesheet" href="css/style.css" media="all">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+  <header>
+    <h3>Sherlock Holmes Quotes</h3>
+    <nav>
+      <ul>
+        <li><a href="https://github.com/Fizzify/sherlock-holmes-quotes/wiki">Documentation</a></li>
+        <li><a href="https://github.com/Fizzify/sherlock-holmes-quotes/">Github</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="hero">
+      <div class="text-box">
+        <h3>Sherlock Holmes Quotes</h3>
+        <h1 class="quote animate__animated animate__fadeInDown">"<%= randomQuote.quote %>"</h1>
+        <p> - <%= randomQuote.author %></p>
+        <div class="btns">
+          <a class="hero-btn" href="https://github.com/Fizzify/sherlock-holmes-quotes/wiki" target="__blank">Documentation</a>
+          <a class="github-btn" href="https://github.com/Fizzify/sherlock-holmes-quotes/" target="__blank">Github</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
