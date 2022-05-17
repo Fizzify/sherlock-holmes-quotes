@@ -7,6 +7,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
+app.set('views', path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 mongoose.connect(process.env.DATABASE);
