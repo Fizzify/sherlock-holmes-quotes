@@ -19,7 +19,7 @@ const Quote = mongoose.model("Quote", quoteSchema);
 
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
+app.route("/").get((req, res) => {
   Quote.find((err, foundQuotes) => {
     if (foundQuotes) {
       const randomNumber = Math.floor(Math.random() * foundQuotes.length);
