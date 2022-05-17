@@ -20,14 +20,18 @@ const Quote = mongoose.model("Quote", quoteSchema);
 app.set("view engine", "ejs");
 
 app.route("/").get((req, res) => {
-  Quote.find((err, foundQuotes) => {
-    if (foundQuotes) {
-      const randomNumber = Math.floor(Math.random() * foundQuotes.length);
-      res.render("home", { randomQuote: foundQuotes[randomNumber] });
-    } else {
-      res.send("Error, no quotes found.");
-    }
-  });
+  res.send("Hello!");
+
+  if (req === null) {
+    Quote.find((err, foundQuotes) => {
+      if (foundQuotes) {
+        const randomNumber = Math.floor(Math.random() * foundQuotes.length);
+        res.render("home", { randomQuote: foundQuotes[randomNumber] });
+      } else {
+        res.send("Error, no quotes found.");
+      }
+    });
+  }
 });
 
 app
