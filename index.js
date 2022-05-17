@@ -21,10 +21,6 @@ const quoteSchema = {
 const Quote = mongoose.model("Quote", quoteSchema);
 
 app.route("/").get((req, res) => {
-  res.redirect("/home");
-});
-
-app.get("/home", (req, res) => {
   Quote.find({}, (err, foundQuote) => {
     if (foundQuote) {
       const randomNumber = Math.floor(Math.random() * foundQuote.length);
