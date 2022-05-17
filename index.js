@@ -1,12 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static("/public"));
+app.use(express.static(path.join(__dirname + "/public")));
+app.set("views", path.join(__dirname + "/views"))
 app.set("view engine", "ejs");
 
 mongoose.connect(process.env.DATABASE);
